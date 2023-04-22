@@ -124,7 +124,7 @@ The shortest path from Beth's house to the Koch residency involves traversing th
 
 
 
-# DIYA
+# Problem 2: Kim's Just Moved in
 **Informal Description**: 
 Kim recently moved into house number 1 in a new neighborhood, and she wants to meet all her neighbors! She wants to see if she would be able to visit all her neighbors within the neighborhood (by checking if the neighborhood is connected). Additionally, she wants to organize the houses by levels in the neighborhood, so that she can easily remember which neighbors live in what part of the neighborhood.
 
@@ -138,10 +138,12 @@ Kim recently moved into house number 1 in a new neighborhood, and she wants to m
 
 
 **Setup code**:
+```python
 
 import networkx as nx
 import matplotlib.pyplot as plt
 
+```
 
 **Visualization**:
 
@@ -213,7 +215,7 @@ plt.savefig("Diya_Graph")
 plt.show()
 
 print("Is the neighborhood connected: " + str(nx.is_connected(G)))
-print("These are the houses in each level:")
+print("These are the houses in each level, each list represents a level:")
 for layer in nx.bfs_layers(G,1):
     print(str(layer))
 
@@ -221,8 +223,10 @@ for layer in nx.bfs_layers(G,1):
 
 **Output**
 
-Is the neighborhood connected: True
-These are the houses in each level:
+Is the neighborhood connected: True <br />   
+
+These are the houses in each level: <br />   
+
 [1]
 [2, 3]
 [4, 21, 19]

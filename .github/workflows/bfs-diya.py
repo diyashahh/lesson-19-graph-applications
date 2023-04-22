@@ -65,6 +65,6 @@ nx.draw_networkx_edge_labels(
 plt.savefig("Diya_Graph")
 plt.show()
 print("Is the neighborhood connected: " + str(nx.is_connected(G)))
-print("These are the houses in each level:")
+print("These are the houses in each level, each list represents a level:")
 for layer in nx.bfs_layers(G,1):
     print(str(layer))

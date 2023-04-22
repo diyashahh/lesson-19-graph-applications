@@ -146,7 +146,7 @@ import matplotlib.pyplot as plt
 
 **Visualization**:
 
-![Kim's Neighborhood](/Diya_Graph.png)
+![Kim's Neighborhood](/Kim_Graph.png)
 
 **Solution code:**
 ```python
@@ -211,7 +211,7 @@ nx.draw_networkx_edge_labels(
     font_color='purple',
     font_size=8
 )
-plt.savefig("Diya_Graph")
+plt.savefig("Kim_Graph")
 plt.show()
 print("Is the neighborhood connected: " + str(nx.is_connected(G)))
 print("These are the houses in each level, each list represents a level:")

@@ -51,7 +51,7 @@ from random import randint
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![Graph of Beth's Neighborhood](/bethgraph.png)
 
 **Solution code:**
 

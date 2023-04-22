@@ -120,3 +120,37 @@ print(shortest_path)
 
 **Interpretation of Results**:
 The shortest path from Beth's house to the Koch residency involves traversing the path from the Zeng household, the forest, Singh household, and O'Neil household, before finally reaching the Koch's house. Using this path, the total number of questions Beth would receive on her way is 35.
+
+
+
+
+# DIYA
+**Informal Description**: 
+
+> **Formal Description**:
+>  * Input:
+>  * Output:
+
+**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+
+
+**Setup code**:
+
+```python
+```
+
+**Visualization**:
+
+![Image goes here](Relative image filename goes here)
+
+**Solution code:**
+
+```python
+```
+
+**Output**
+
+```
+```
+
+**Interpretation of Results**:

@@ -138,11 +138,10 @@ Kim recently moved into house number 1 in a new neighborhood, and she wants to m
 
 
 **Setup code**:
-```python
 
+```python
 import networkx as nx
 import matplotlib.pyplot as plt
-
 ```
 
 **Visualization**:
@@ -223,9 +222,9 @@ for layer in nx.bfs_layers(G,1):
 
 **Output**
 
-Is the neighborhood connected: True <br />   
+Is the neighborhood connected: True <br>   
 
-These are the houses in each level: <br />   
+These are the houses in each level: <br>   
 
 [1]
 [2, 3]

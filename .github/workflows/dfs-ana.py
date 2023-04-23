@@ -39,8 +39,11 @@ g.add_edge("P", "L")
 g.add_edge("M", "K")
 g.add_edge("P", "L")
 g.add_edge("F", "I")
+g.add_edge("R", "E")
+g.add_edge("P", "D")
+g.add_edge("M", "L")
 
-pos= nx.fruchterman_reingold_layout(g)
+pos = nx.fruchterman_reingold_layout(g)
 
 nx.draw_networkx_edge_labels(g,pos, edge_labels = {('A', 'S'):'Short St',
     ('I', 'O') : 'High St',
@@ -68,12 +71,16 @@ nx.draw_networkx_edge_labels(g,pos, edge_labels = {('A', 'S'):'Short St',
     ('L','P') : 'Fire Ave',
     ('B','N') : 'Long St',
     ('E', 'T'): 'Fly Dr',
-    ('P', 'R'): 'Train Ln'}
-    , font_color = "blue", label_pos = .5,horizontalalignment = 'center' ,rotate = True, font_size=7,clip_on = True)
-nx.draw_networkx(g, with_labels=True,node_color="blue",node_size=700, font_color="white", font_size=7)
+    ('P', 'R'): 'Train Ln',
+    ('P', 'D'): 'Low St',
+    ('E', 'R'): 'Sky St',
+    ('T', 'R'): 'Main St',
+    ('L', 'M'): 'Velvet Dr'}
+    , font_color = "blue", label_pos = .5,rotate = True, font_size=5, font_weight = "bold")
+nx.draw_networkx(g, pos, with_labels=True,node_color="blue",node_size=700, font_color="white", font_size=7)
 
 plt.savefig("Ana_graph")
-plt.margins(0)
+plt.margins(0.1)
 plt.show()
 
 print(list(nx.edge_dfs(g,'A')))

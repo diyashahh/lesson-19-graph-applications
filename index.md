@@ -237,3 +237,117 @@ These are the houses in each level, each list represents a level: <br>
 The BFS algorithm is used to traverse a graph in a breadth-first manner, i.e., visiting all the nodes at a given level before moving to the next level. In this case, the BFS algorithm is used to determine if it is possible for Kim to visit all her neighbors without leaving the neighborhood, and also to organize the houses into levels within the neighborhood.
 
 The output shows that the neighborhood is connected, which means that Kim can visit all her neighbors without leaving the neighborhood. The output also provides a list of the houses in each level of the neighborhood. For example, house number 1 is in the first level, house numbers 2 and 3 are in the second level, and so on. This information can be helpful for Kim to easily remember which neighbors live in what part of the neighborhood.
+
+# Problem 2: Ally's is training
+**DFS Algorithm**
+
+**Informal Description**: 
+Ally is training in a new neighboorhood wants to explore. She wants to travel through every street. She is training for an upcoming race so she does not mind repeating streets. Ally is starting at house A and hopes to end at the closest spot. 
+
+> **Formal Description**:
+>  * Input: A graph of 20 nodes and 31 edges - edges labelled with realative street names and nodes labeled by letters.
+>  * Output: (String) Path of houses to travel through every street in the neighborhood at least once.
+**Setup code**:
+
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+```
+
+**Visualization**:
+
+![Allys's Neighborhood](/Ally's Neighoorhood.png)
+
+**Solution code:**
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
+g = nx.Graph()
+nodes = ["A","B","C","D","E","F","G","H"
+                  ,"I","J","K","L","M","N","O","P",
+                  "Q", "R","S","T"]
+g.add_nodes_from(nodes)
+
+
+g.add_edge("I", "O")
+g.add_edge("O", "C")
+g.add_edge("P", "O")
+g.add_edge("A", "O")
+g.add_edge("B", "O")
+g.add_edge("E", "M")
+g.add_edge("D", "E")
+g.add_edge("N", "D")
+g.add_edge("C", "N")
+g.add_edge("I", "C")
+g.add_edge("I", "S")
+g.add_edge("J", "I")
+g.add_edge("K", "J")
+g.add_edge("G", "H")
+g.add_edge("F", "G")
+g.add_edge("F", "D")
+g.add_edge("F", "I")
+g.add_edge("G", "J")
+g.add_edge("H", "K")
+g.add_edge("R", "M")
+g.add_edge("K", "L")
+g.add_edge("A", "S")
+g.add_edge("B", "N")
+g.add_edge("T", "B")
+g.add_edge("T", "E")
+g.add_edge("T", "R")
+g.add_edge("P", "R")
+g.add_edge("P", "L")
+g.add_edge("M", "K")
+g.add_edge("P", "L")
+g.add_edge("F", "I")
+g.add_edge("Q", "K")
+
+pos= nx.fruchterman_reingold_layout(g)
+
+nx.draw_networkx_edge_labels(g,pos, edge_labels = {('A', 'S'):'Short St',
+    ('I', 'O') : 'High St',
+    ('O', 'C') : 'Adams Rd',
+    ('O', 'P') : 'Laurel Ave',
+    ('A', 'O') : 'Choate St',
+    ('O', 'B') : 'Academy St',
+    ('B','T') : 'Haines St',
+    ('E', 'M') : 'Chapel St',
+    ('D', 'E') : 'Clover Ln',
+    ('N','D') : 'Day Dr',
+    ('C', 'N') : 'East Dr',
+    ('I', 'C'): 'West Dr',
+    ('I', 'S') : 'Grove St',
+    ('J', 'I'):'Kings Dr' ,
+    ('K', 'J') : 'Pine Rd',
+    ('G', 'H') : 'North St',
+    ('F','G') : 'South St',
+    ('D','F') : 'Wood Ln',
+    ('F', 'I') : 'Rose Rd',
+    ('G','J') : 'Stone St',
+    ('H','K') : 'Sparks Ave',
+    ('R', 'M') : 'Daisy Rd',
+    ('K','L') : 'Strong St',
+    ('L','P') : 'Fire Ave',
+    ('B','N') : 'Long St',
+    ('E', 'T'): 'Fly Dr',
+    ('P', 'R'): 'Train Ln',
+    ('Q', 'K'): 'Delaware Ln'}
+    , font_color = "blue", label_pos = .5,horizontalalignment = 'center' ,rotate = True, font_size=7,clip_on = True)
+nx.draw_networkx(g, with_labels=True,node_color="blue",node_size=700, font_color="white", font_size=7)
+
+plt.savefig("Ana_graph")
+plt.margins(0)
+plt.show()
+
+print(nx.dfs_edges(g))
+
+```
+
+**Output**  
+These is the path:
+('A', 'O'), ('O', 'I'), ('I', 'C'), ('C', 'N'), ('N', 'D'), ('D', 'E'), ('E', 'M'), ('M', 'R'), ('R', 'T'), ('T', 'B'), ('R', 'P'), ('P', 'L'), ('L', 'K'), ('K', 'J'), ('J', 'G'), ('G', 'H'), ('G', 'F'), ('I', 'S')
+
+**Interpretation of Results**:
+Depth first search is defined to traverse every node or "house". 
+These results show a path for Ally to traverse through the entire neighboorhood without skipping any streets or houses. 

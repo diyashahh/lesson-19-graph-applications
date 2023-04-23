@@ -2,63 +2,79 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 g = nx.Graph()
-
-g.add_nodes_from(["Short St","High St","Adams Rd","Laurel Ave","Choate St","Academy St","Haines St","Chapel St"
-                  ,"Clover Ln","Day Dr","East Dr","West Dr","Grove St","Kings Dr","Pine Rd","North St",
-                  "South St","Wood Ln","Rose Rd","Stone St","Sparks Ave","Night Dr"])
-
-
-g.add_edges_from([("Short St", "Pine Rd"), ("Short St", "Rose Rd"), ("High St", "Pine Rd"), ("High St", "South St"), ("High St", "Kings Dr"),
-                ("Adams Rd", "Kings Dr"), ("Adams Rd", "Clover Ln"), ("Adams Rd", "Pine Rd"), ("Laurel Ave", "Choate St"), ("Laurel Ave", "Academy St"),
-                ("Laurel Ave", "Kings Dr"), ("Choate St", "Sparks Ave"), ("Academy St", "Haines St"), ("Academy St", "Clover Ln"), 
-                ("Haines St", "Chapel St"), ("Haines St", "Day Dr"), ("Chapel St", "West Dr"), 
-                ("Clover Ln", "Day Dr"),("Clover Ln", "Rose Rd"), ("Clover Ln", "Pine Rd"), ("Day Dr", "Academy St"), ("Day Dr", "West Dr"),
-                ("East Dr", "Chapel St"), ("East Dr", "Day Dr"), ("West Dr", "Night Dr"), ("West Dr", "North St"), 
-                ("Grove St", "Wood Ln"), ("Grove St", "Choate St"), ("Grove St", "Night Dr"), ("Pine Rd", "North St"), ("North St", "Academy St"), 
-                ("North St", "Wood Ln"), ("South St", "High St"), ("South St", "Wood Ln"), ("South St", "Choate St"), ("Wood Ln", "Pine Rd"), 
-                ("Wood Ln", "Sparks Ave"), ("Rose Rd", "Academy St"), ("Stone St", "Pine Rd"), 
-                ("Night Dr", "Academy St"), ("Night Dr", "Sparks Ave"), ("Sparks Ave", "Grove St")])
-
-# Graph represented as an alphabetic list
-graph = {
-    'A': ['O', 'S'],
-    'B': ['O', 'T', 'N'],
-    'C': ['N', 'I', 'O'],
-    'D': ['E', 'F', 'N'],
-    'E': ['M', 'T', 'D'],
-    'F': ['D', 'G', 'I'],
-    'G': ['F', 'H', 'J'],
-    'H': ['G', 'K'],
-    'I': ['C', 'J', 'S', 'O'],
-    'J': ['I', 'K', 'G'],
-    'K': ['H', 'J'],
-    'L': ['V', 'P'],
-    'M': ['R', 'E', 'V'],
-    'N': ['D', 'C', 'B'],
-    'O': ['C', 'A', 'P', 'B'],
-    'P': ['L', 'R', 'O'],
-    'Q': ['B', 'R', 'E'],
-    'R': ['P', 'M', 'Q'],
-    'S': ['I', 'A'],
-    'T': ['L', 'K'],
-    'U': ['P', 'O'],
-    'V': ['L', 'M']
-}
-
-visited = set() # Set to keep track of visited nodes.
+nodes = ["A","B","C","D","E","F","G","H"
+                  ,"I","J","K","L","M","N","O","P",
+                  "R","S","T"]
+g.add_nodes_from(nodes)
 
 
-def dfs(graph, node, visited):
-    
-    if node not in visited:
-        print (node)
-        visited.add(node)
-        for neighbour in graph[node]:
-            dfs(visited, graph, neighbour)
+g.add_edge("I", "O")
+g.add_edge("O", "C")
+g.add_edge("P", "O")
+g.add_edge("A", "O")
+g.add_edge("B", "O")
+g.add_edge("E", "M")
+g.add_edge("D", "E")
+g.add_edge("N", "D")
+g.add_edge("C", "N")
+g.add_edge("I", "C")
+g.add_edge("I", "S")
+g.add_edge("J", "I")
+g.add_edge("K", "J")
+g.add_edge("G", "H")
+g.add_edge("F", "G")
+g.add_edge("F", "D")
+g.add_edge("F", "I")
+g.add_edge("G", "J")
+g.add_edge("H", "K")
+g.add_edge("R", "M")
+g.add_edge("K", "L")
+g.add_edge("A", "S")
+g.add_edge("B", "N")
+g.add_edge("T", "B")
+g.add_edge("T", "E")
+g.add_edge("T", "R")
+g.add_edge("P", "R")
+g.add_edge("P", "L")
+g.add_edge("M", "K")
+g.add_edge("P", "L")
+g.add_edge("F", "I")
 
-nx.draw_networkx(g, with_labels=True,node_color="blue",node_size=700, font_color="white", font_size=5)
+pos= nx.fruchterman_reingold_layout(g)
+
+nx.draw_networkx_edge_labels(g,pos, edge_labels = {('A', 'S'):'Short St',
+    ('I', 'O') : 'High St',
+    ('O', 'C') : 'Adams Rd',
+    ('O', 'P') : 'Laurel Ave',
+    ('A', 'O') : 'Choate St',
+    ('O', 'B') : 'Academy St',
+    ('B','T') : 'Haines St',
+    ('E', 'M') : 'Chapel St',
+    ('D', 'E') : 'Clover Ln',
+    ('N','D') : 'Day Dr',
+    ('C', 'N') : 'East Dr',
+    ('I', 'C'): 'West Dr',
+    ('I', 'S') : 'Grove St',
+    ('J', 'I'):'Kings Dr' ,
+    ('K', 'J') : 'Pine Rd',
+    ('G', 'H') : 'North St',
+    ('F','G') : 'South St',
+    ('D','F') : 'Wood Ln',
+    ('F', 'I') : 'Rose Rd',
+    ('G','J') : 'Stone St',
+    ('H','K') : 'Sparks Ave',
+    ('R', 'M') : 'Daisy Rd',
+    ('K','L') : 'Strong St',
+    ('L','P') : 'Fire Ave',
+    ('B','N') : 'Long St',
+    ('E', 'T'): 'Fly Dr',
+    ('P', 'R'): 'Train Ln'}
+    , font_color = "blue", label_pos = .5,horizontalalignment = 'center' ,rotate = True, font_size=7,clip_on = True)
+nx.draw_networkx(g, with_labels=True,node_color="blue",node_size=700, font_color="white", font_size=7)
+
+plt.savefig("Ana_graph")
 plt.margins(0)
 plt.show()
 
-dfs(visited, graph, 'A')
+print(list(nx.edge_dfs(g,'A')))
 

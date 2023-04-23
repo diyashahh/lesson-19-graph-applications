@@ -125,6 +125,7 @@ The shortest path from Beth's house to the Koch residency involves traversing th
 
 
 # Problem 2: Kim Just Moved in
+
 **Informal Description**: 
 Kim recently moved into house number 1 in a new neighborhood, and she wants to meet all her neighbors! She wants to see if she would be able to visit all her neighbors within the neighborhood (by checking if the neighborhood is connected). Additionally, she wants to organize the houses by levels in the neighborhood, so that she can easily remember which neighbors live in what part of the neighborhood.
 
@@ -238,6 +239,7 @@ The BFS algorithm is used to traverse a graph in a breadth-first manner, i.e., v
 
 The output shows that the neighborhood is connected, which means that Kim can visit all her neighbors without leaving the neighborhood. The output also provides a list of the houses in each level of the neighborhood. For example, house number 1 is in the first level, house numbers 2 and 3 are in the second level, and so on. This information can be helpful for Kim to easily remember which neighbors live in what part of the neighborhood.
 
+<<<<<<< HEAD
 # Problem 2: Ally's is training
 **DFS Algorithm**
 
@@ -247,6 +249,19 @@ Ally is training in a new neighboorhood wants to explore. She wants to travel th
 > **Formal Description**:
 >  * Input: A graph of 20 nodes and 31 edges - edges labelled with realative street names and nodes labeled by letters.
 >  * Output: (String) Path of houses to travel through every street in the neighborhood at least once.
+=======
+# Problem #4: Meet the neighbors!
+**Informal Description**: 
+Katie has recently moved into a new neighborhood named "Kruskal's Neighborhood". She is eager to make friends with her neighbors and wantes to know the best way to visit every house while taking the least amount of steps as possible. In addition to the best path, she also wants to know the total number of steps of said path. 
+
+> **Formal Description**:
+>  * Input: A graph of 21 nodes and 31 edges - nodes labelled with house's owners name, edges weighted by number of steps each edge represents.
+>  * Output: (int) the total number of steps for the shortest path arounnd the neighborhood, and a list of edges to follow to take the path with the least number of steps.
+
+**Kruskal's Algorithim**
+
+
+>>>>>>> main
 **Setup code**:
 
 ```python
@@ -256,6 +271,7 @@ import matplotlib.pyplot as plt
 
 **Visualization**:
 
+<<<<<<< HEAD
 ![Allys's Neighborhood](/Ana_graph.png)
 
 **Solution code:**
@@ -358,3 +374,73 @@ These is the path:
 **Interpretation of Results**:
 Depth first search is defined to traverse every node or "house". 
 These results show a path for Ally to traverse through the entire neighboorhood without skipping any streets or houses. 
+=======
+![Kruskal's Neighborhood](/Kruskals_graph.png)
+
+**Solution code:**
+```python
+import networkx as nx;
+import matplotlib.pyplot as plt;
+
+G = nx.Graph()
+# all houses
+houses = ['katie','ana','john','tyler','ella','cora','molly','annie','rob','julia',
+        'mike','emma','kelly','becka','taylor','livi','justin','michael','rana', 'diya', 'matt']
+G.add_nodes_from(houses)
+# weighted edges
+G.add_weighted_edges_from([('katie','diya', 13),
+                            ('katie','ana', 7),
+                            ('ana','john',7),
+                            ('john','matt', 8),
+                            ('matt','rana', 9),
+                            ('rana','michael', 8),
+                            ('michael','justin', 8),
+                            ('justin','livi', 6),
+                            ('livi','kelly', 6),
+                            ('kelly','becka', 9),
+                            ('becka','taylor', 10),
+                            ('kelly','mike', 7),
+                            ('mike','emma', 9),
+                            ('mike','julia', 7),
+                            ('julia','rob', 6),
+                            ('rob', 'cora', 7),
+                            ('cora','ella', 12),
+                            ('ella','tyler', 6),
+                            ('cora','molly', 11),
+                            ('molly', 'annie', 10),
+                            ('annie','michael', 20),
+                            ('john','ella', 10),
+                            ('tyler','ana', 20),
+                            ('diya','rana', 10)])
+
+# draw graph
+pos = nx.spring_layout(G)
+nx.draw(G, pos, with_labels=True, font_weight='bold', node_size=1000, node_color='blue')
+
+# weighted edges
+edge_weight = nx.get_edge_attributes(G,'weight')
+nx.draw_networkx_edge_labels(G, pos, edge_labels = edge_weight) 
+
+# show the graph
+plt.show()
+
+mst = nx.tree.minimum_spanning_edges(G, algorithm="kruskal", data=False)
+edgelist = list(mst)
+sorted(sorted(e) for e in edgelist)
+print(edgelist)
+steps = 0
+for edge in edgelist:
+    steps += G.get_edge_data(*edge)['weight']
+print(steps)
+
+
+**Output**
+
+python
+[('tyler', 'ella'), ('rob', 'julia'), ('kelly', 'livi'), ('livi', 'justin'), ('katie', 'ana'), ('ana', 'john'), ('cora', 'rob'), ('julia', 'mike'), ('mike', 'kelly'), ('john', 'matt'), ('justin', 'michael'), ('michael', 'rana'), ('mike', 'emma'), ('kelly', 'becka'), ('rana', 'matt'), ('john', 'ella'), ('molly', 'annie'), ('becka', 'taylor'), ('rana', 'diya'), ('cora', 'molly')]
+161
+```
+
+**Interpretation of Results**:
+The shortest possible number of steps to reach evey house on Katie's walk around the neighborhood is 161 steps. The edges taken to get said path are as follows: [('tyler', 'ella'), ('rob', 'julia'), ('kelly', 'livi'), ('livi', 'justin'), ('katie', 'ana'), ('ana', 'john'), ('cora', 'rob'), ('julia', 'mike'), ('mike', 'kelly'), ('john', 'matt'), ('justin', 'michael'), ('michael', 'rana'), ('mike', 'emma'), ('kelly', 'becka'), ('rana', 'matt'), ('john', 'ella'), ('molly', 'annie'), ('becka', 'taylor'), ('rana', 'diya'), ('cora', 'molly')]. Kruskal's algorithim is used to navigate through the graph, choosing edges to keep (starting from the shortest number of steps going up to the largest number of steps) and outputting said edges. In addition to using the built in networkx algorithim, I added a for statement that keeps track of the edge weights as they were chosen throughout the algorithim. This is how I was able to determine the total number of steps following the path with the least number of steps. 
+>>>>>>> main

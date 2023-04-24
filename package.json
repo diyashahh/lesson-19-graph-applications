@@ -1,0 +1,11 @@
+{
+  "name": "lesson-19-graph-applications",
+  "version": "1.0.0",
+  "description": "Hello, this is the starter repository for Lesson 19.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

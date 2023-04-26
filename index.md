@@ -5,7 +5,7 @@
 Group Members:
 * Diya Shah (diyashah@udel.edu)
 * Rana Tuncer (rantun@udel.edu)
-* Katie Oates (email)
+* Katie Oates (koates@udel.edu)
 * Ana (acdonato@udel.edu)
 
 Description of project

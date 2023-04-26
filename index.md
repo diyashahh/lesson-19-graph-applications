@@ -444,7 +444,8 @@ print(steps)
 
 **Output**
 
-python
+```python
+
 [('tyler', 'ella'), ('rob', 'julia'), ('kelly', 'livi'), ('livi', 'justin'), ('katie', 'ana'), ('ana', 'john'), ('cora', 'rob'), ('julia', 'mike'), ('mike', 'kelly'), ('john', 'matt'), ('justin', 'michael'), ('michael', 'rana'), ('mike', 'emma'), ('kelly', 'becka'), ('rana', 'matt'), ('john', 'ella'), ('molly', 'annie'), ('becka', 'taylor'), ('rana', 'diya'), ('cora', 'molly')]
 161
 ```

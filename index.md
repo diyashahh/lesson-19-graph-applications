@@ -440,7 +440,7 @@ steps = 0
 for edge in edgelist:
     steps += G.get_edge_data(*edge)['weight']
 print(steps)
-
+```
 
 **Output**
 

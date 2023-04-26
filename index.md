@@ -22,7 +22,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# Beth's New Job!
+# Problem 1: Beth's New Job!
 
 **Informal Description**:
 Beth Brown has recently been elected as a community representative. With her new role, she has to visit different families and ask them about life in the neighborhood. However, a lot of people have questions for Beth and often stop her to ask about improvements for the neighborhood, which tires her out quite a bit!

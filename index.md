@@ -363,7 +363,7 @@ The DFS algorithm provides a in depth path through a tree by the nodes. The algo
 
 The output shows that Ally can travel get to every street in the nighborhood while only backtracking a few times. But she is training for a endurance based race, a little extra mileage will not hurt. 
 
-# Problem #4: Meet the neighbors!
+# Problem 4: Meet the neighbors!
 **Informal Description**: 
 Katie has recently moved into a new neighborhood named "Kruskal's Neighborhood". She is eager to make friends with her neighbors and wantes to know the best way to visit every house while taking the least amount of steps as possible. In addition to the best path, she also wants to know the total number of steps of said path. 
 

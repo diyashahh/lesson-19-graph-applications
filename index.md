@@ -22,7 +22,7 @@ $> pip install networkx
 import networkx as nx
 ```
 
-# First Problem Title
+# Beth's New Job!
 
 **Informal Description**:
 Beth Brown has recently been elected as a community representative. With her new role, she has to visit different families and ask them about life in the neighborhood. However, a lot of people have questions for Beth and often stop her to ask about improvements for the neighborhood, which tires her out quite a bit!
@@ -124,7 +124,7 @@ The shortest path from Beth's house to the Koch residency involves traversing th
 
 
 
-# Problem 2: Kim Just Moved in
+# Problem 2: Kim Just Moved in!
 
 **Informal Description**: 
 Kim recently moved into house number 1 in a new neighborhood, and she wants to meet all her neighbors! She wants to see if she would be able to visit all her neighbors within the neighborhood (by checking if the neighborhood is connected). Additionally, she wants to organize the houses by levels in the neighborhood, so that she can easily remember which neighbors live in what part of the neighborhood.
